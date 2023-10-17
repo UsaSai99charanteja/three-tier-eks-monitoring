@@ -75,8 +75,8 @@ module "eks" {
 
   aws_auth_roles = [
     {
-      rolearn  = 
-      username = 
+      rolearn  = module.eks_admins_iam_role.iam_role_arn
+      username = module.eks_admins_iam_role.iam_user_name
       groups   = ["system:masters"]
     },
   ]
