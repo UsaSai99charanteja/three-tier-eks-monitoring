@@ -9,3 +9,4 @@ provider "kubectl" {
     command     = "aws"
   }
 }
+
