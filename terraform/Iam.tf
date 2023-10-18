@@ -32,6 +32,8 @@ module "eks_admins_iam_role" {
 
   custom_role_policy_arns = [module.eks-eks_cluster_policy.arn]
 
+}
+
 
 
 #creating the users
@@ -48,7 +50,7 @@ module "adding_iam_user" {
 }
 
 #
-module "iam_assume_user_policy" {
+module "iam_assume_group_user_policy" {
   source = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
   version = "5.3.1"
 
@@ -71,7 +73,7 @@ module "iam_assume_user_policy" {
 }
 
 #eks-user-access-groups
-moudule "eks_user-groups" {
+module "eks_user-groups" {
   source = "terraform-aws-modules/iam/aws//modules/iam-group-with-policies"
   version = "5.3.1"
 
@@ -79,7 +81,7 @@ moudule "eks_user-groups" {
   attach_iam_self_management_policy = false
   create_group = true
   group_users = [module.adding_iam_user.iam_user_name]
-  custom_group_policy_arns = [module.]
+  custom_group_policy_arns = [module.iam_assume_group_user_policy.arn]
   
 
 }
