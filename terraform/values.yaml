@@ -1121,4 +1121,4 @@ prometheus-pushgateway:
 
   # Optional service annotations
   serviceAnnotations:
-    prometheus.io/probe: pushgateway
+    prometheus.io/probe: pushgateway 
