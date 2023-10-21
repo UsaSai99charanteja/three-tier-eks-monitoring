@@ -146,6 +146,7 @@ subjects:
     name: cluster-autoscaler
     namespace: kube-system
 EOF
+}
 
 
 resource "kubectl_manifest" "deployment" {
