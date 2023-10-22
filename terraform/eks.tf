@@ -1,3 +1,4 @@
+#creating the eks cluster using terraform predefined module
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 19.0"
