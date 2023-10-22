@@ -148,7 +148,7 @@ subjects:
 EOF
 }
 
-
+#autoscaler deployment attached with the service account
 resource "kubectl_manifest" "deployment" {
   yaml_body = <<-EOF
 apiVersion: apps/v1
