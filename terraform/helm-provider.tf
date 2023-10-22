@@ -1,3 +1,4 @@
+#installing the helm provider in the cluster
 provider "helm" {
   kubernetes {
     host                   = data.aws_eks_cluster.default.endpoint
