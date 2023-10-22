@@ -13,7 +13,7 @@ module "aws_load_balancer_controller_irsa_role" {
     }
   }
 }
-
+#helm to create the load balancer
 resource "helm_release" "aws_load_balancer_controller" {
   name = "aws-load-balancer-controller"
 
