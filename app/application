@@ -1,0 +1,3 @@
+#Get the application code from the developer
+#Dockerize the application and push the Docker image to the ECR
+#Create the k8s manifest files to deploy the application
