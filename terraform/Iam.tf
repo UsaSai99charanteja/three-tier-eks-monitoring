@@ -1,9 +1,10 @@
 #creating the eks-cluster-policy
 module "eks_cluster_policy" {
-  source = "terraform-aws-modules/iam/aws//moudules/iam-policy"
+  source = "terraform-aws-modules/iam/aws//modules/iam-policy"
+            
   version = "5.3.1"
 
-  name = "Allow-eks-access"
+  name = "allow-eks-access"
   create_policy = true
 
   policy = jsonencode({
@@ -30,7 +31,10 @@ module "eks_admins_iam_role" {
   create_role       = true
   role_requires_mfa = false
 
-  custom_role_policy_arns = [module.eks-eks_cluster_policy.arn]
+  custom_role_policy_arns = [module.eks_cluster_policy.arn]
+  trusted_role_arns = [
+    "arn:aws:iam::${module.vpc.vpc_owner_id}:root"
+  ]
 
 }
 
@@ -47,6 +51,7 @@ module "adding_iam_user" {
   force_destroy = true
   create_iam_user_login_profile = false
   create_iam_access_key         = false
+  force_destroy = true
 }
 
 #
