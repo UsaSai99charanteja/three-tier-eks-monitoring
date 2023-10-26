@@ -1,7 +1,7 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
   version = "5.1.2"
-  name = "micro-service"
+  name = "vpc"
   cidr = "10.0.0.0/16"
 
   azs             =  var.availability_zones
