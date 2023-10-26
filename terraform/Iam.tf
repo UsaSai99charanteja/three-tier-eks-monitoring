@@ -51,7 +51,7 @@ module "adding_iam_user" {
   force_destroy = true
   create_iam_user_login_profile = false
   create_iam_access_key         = false
-  force_destroy = true
+  
 }
 
 #
