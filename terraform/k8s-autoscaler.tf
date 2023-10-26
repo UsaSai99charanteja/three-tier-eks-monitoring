@@ -21,7 +21,7 @@ metadata:
   name: cluster-autoscaler
   namespace: kube-system
   annotations:
-    eks.amazonaws.com/role-arn: ${module.cluster_autoscaler_irsa_role.iam_role_arn}
+    eks.amazonaws.com/role-arn: ${module.vpc_cluster_sa_irsa.iam_role_arn}
 EOF
 }
 
